@@ -7,9 +7,11 @@ int if_else_elseif_else() {
 
     if (x > 5) {
         std::cout << "x is greater than 5" << std::endl;
-    } else if (x == 5) {
+    } 
+    else if (x == 5) {
         std::cout << "x is equal to 5" << std::endl;
-    } else {
+    } 
+    else {
         std::cout << "x is less than 5" << std::endl;
     }
 
