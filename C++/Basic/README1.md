@@ -66,7 +66,7 @@ any([True, False, False])
 
 **Example**:
 ```python
-ascii('ñ')
+ascii('ï¿½')
 # Output: '\xf1'
 ```
 
