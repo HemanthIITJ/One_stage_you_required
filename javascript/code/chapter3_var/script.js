@@ -23,6 +23,14 @@ if (age >= 18) { // ✅ Check if age is 18 or older
     console.log("You are an adult 🧑"); // Output if age is 18 or older
 }
 
+// Example 3: if condition with logical operator
+let has_Ticket = true; // 🎟️ Imagine you have a ticket for an event
+let hasPass = true; // 🎫 Imagine you have a pass for the even
+if (hasTicket && hasPass) { // ✅ Check if both conditions are true
+    console.log("You can enter the event! 🎉"); // Output if both are true
+}
+
+
 
 // --- if...else statement ---
 console.log("\n--- if...else statement ---");
@@ -63,7 +71,7 @@ if (studentScore >= 90) { // 🥇 Check for A grade
 
 
 // Example 2: Day of the week
-let dayOfWeek = "Wednesday"; // 📅 Let's check the day
+let dayOfWeek = "Friday"; // 📅 Let's check the day
 if (dayOfWeek === "Monday") { // 💼 Check if it's Monday
     console.log("It's Monday, start of the work week");
 } else if (dayOfWeek === "Tuesday") { // Check if it's Tuesday
