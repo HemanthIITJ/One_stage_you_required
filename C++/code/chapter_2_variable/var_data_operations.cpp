@@ -10,9 +10,9 @@
  * Each section contains 5 examples (our signature) with detailed comments.
  *****************************************************/
 
-#include <iostream>
-#include <string>
-using namespace std;
+#include <iostream> // For input/output operations
+#include <string>  // For string data type
+using namespace std; // Using the standard namespace
 
 int main() {
     // ======================================================
@@ -22,7 +22,7 @@ int main() {
     
     // Example 1: Declare an integer variable without initialization.
     // 👉 Warning: Uninitialized variables may contain garbage values.
-    int a; 
+    int a ; 
     // cout << "Value of a (uninitialized): " << a << "\n"; // Avoid printing uninitialized variables!
 
     // Example 2: Declare and initialize an integer variable.

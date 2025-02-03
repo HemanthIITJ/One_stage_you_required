@@ -10,10 +10,10 @@
  * Comments include brief explanations, potential pitfalls, and some fun symbols.
  ***************************************************************/
 
-#include <iostream>
-#include <string>
-#include <vector>
-#include <tuple>
+#include <iostream>  // for cout, cin
+#include <string> // for string
+#include <vector> // for vector
+#include <tuple> // for tuple
 #include <algorithm>  // for std::find
 
 using namespace std;

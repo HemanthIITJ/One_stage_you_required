@@ -10,9 +10,9 @@
  * Each section contains 5 examples (our signature).
  *****************************************************/
 
-#include <iostream>
-#include <string>
-using namespace std;
+#include <iostream> // For input/output operations
+#include <string>   // For string operations
+using namespace std; // Using standard namespace
 
 int main() {
     // ======================================================
