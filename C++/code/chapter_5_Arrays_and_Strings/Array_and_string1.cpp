@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include <string>
-#include <sstream>
+#include <sstream> 
 #include <stdexcept>
 #include <exception>
 using namespace std;
@@ -152,7 +152,7 @@ void stringExample3() {
     string sentence = "C++ programming is powerful!";
     
     // Finding a substring.
-    size_t pos = sentence.find("programming");
+    size_t pos = sentence.find("Programming");
     if (pos != string::npos) {
         cout << "\"programming\" found at position: " << pos << "\n";
     } else {
