@@ -24,7 +24,7 @@ void pointerDeclarationExamples() {
     // Example 1: int pointer
     int a = 10;
     int* p1 = &a;
-    cout << "Example 1: int a = 10; int* p1 = &a; -> *p1 = " << *p1 << "\n";
+    cout << "Example 1: int a = 10; int* p1 = &a; -> *p1 = " << *p1 << "Address of a by p1:"<< p1 << "\n";
     
     // Example 2: double pointer
     double d = 3.1415;
@@ -109,18 +109,18 @@ void addressOfOperatorExamples() {
     cout << "Example 5: long num5 = 100000L; long* addr5 = &num5; -> addr5 = " << addr5 << "\n";
     
     // Example 6: Get address of a short variable
-    short num6 = 32000;
-    short* addr6 = &num6;
+    short num6 = 32000; // Note: short num6 = 32000; is also valid, but it's less explicit.
+    short* addr6 = &num6; // Note: short* addr6 = &num6; is also valid, but it's less explicit.
     cout << "Example 6: short num6 = 32000; short* addr6 = &num6; -> addr6 = " << addr6 << "\n";
     
     // Example 7: Get address of a bool variable
-    bool isTrue = false;
-    bool* addr7 = &isTrue;
+    bool isTrue = false; // Note: bool isTrue = false; is also valid, but it's less explicit.
+    bool* addr7 = &isTrue; // Note: bool* addr7 = &isTrue; is also valid, but it's less explicit.
     cout << "Example 7: bool isTrue = false; bool* addr7 = &isTrue; -> addr7 = " << addr7 << "\n";
     
     // Example 8: Get address of an unsigned int variable
-    unsigned int num8 = 123456u;
-    unsigned int* addr8 = &num8;
+    unsigned int num8 = 123456u; // Note: unsigned int num8 = 123456u; is also valid, but it's less explicit.
+    unsigned int* addr8 = &num8; // Note: unsigned int* addr8 = &num8; is also valid, but it's less explicit.
     cout << "Example 8: unsigned int num8 = 123456u; unsigned int* addr8 = &num8; -> addr8 = " << addr8 << "\n";
     
     // Example 9: Get address of an array (array name decays to pointer)
@@ -208,26 +208,26 @@ void pointerInitializationExamples() {
     cout << "\n=== Pointer Initialization Examples 🔧 ===\n";
     
     // Example 1: Initialize pointer using address-of operator
-    int a = 10;
-    int* p1 = &a;
+    int a = 10; // a is an int variable
+    int* p1 = &a; // p1 points to a
     cout << "Example 1: int a = 10; int* p1 = &a; -> *p1 = " << *p1 << "\n";
     
     // Example 2: Initialize pointer with a literal array (decay to pointer)
-    int arr1[3] = {1, 2, 3};
+    int arr1[3] = {1, 2, 3}; // arr1 is an array of 3 ints
     int* pArr1 = arr1;  // pArr1 points to arr1[0]
     cout << "Example 2: int arr1[3] = {1,2,3}; int* pArr1 = arr1; -> *pArr1 = " << *pArr1 << "\n";
     
     // Example 3: Initialize pointer using new (dynamic memory allocation)
-    int* pDynamic = new int(500);
+    int* pDynamic = new int(500); // dynamically allocate memory for an int and initialize it to 500
     cout << "Example 3: int* pDynamic = new int(500); -> *pDynamic = " << *pDynamic << "\n";
     delete pDynamic;  // free memory
     
     // Example 4: Initialize pointer to a string literal (char pointer)
-    const char* str = "Hello, Pointer!";
+    const char* str = "Hello, Pointer!"; // str points to a string literal
     cout << "Example 4: const char* str = \"Hello, Pointer!\"; -> str = " << str << "\n";
     
     // Example 5: Initialize pointer to an element of an array explicitly
-    int arr2[4] = {10, 20, 30, 40};
+    int arr2[4] = {10, 20, 30, 40}; // arr2 is an array of 4 ints
     int* pArr2 = &arr2[2];  // points to the third element (30)
     cout << "Example 5: int arr2[4] = {10,20,30,40}; int* pArr2 = &arr2[2]; -> *pArr2 = " << *pArr2 << "\n";
     
