@@ -24,7 +24,7 @@ void pointerDeclarationExamples() {
     // Example 1: int pointer
     int a = 10;
     int* p1 = &a;
-    cout << "Example 1: int a = 10; int* p1 = &a; -> *p1 = " << *p1 << "Address of a by p1:"<< p1 << "\n";
+    cout << "Example 1: int a = 10; int* p1 = &a; -> *p1 = " << *p1 << "  Address of a by p1:"<< p1 << "\n";
     
     // Example 2: double pointer
     double d = 3.1415;
