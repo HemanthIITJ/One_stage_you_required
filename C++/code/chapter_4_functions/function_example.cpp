@@ -9,10 +9,10 @@
  * Date: 2023-10-01
  */
 
-#include <iostream>
+#include <iostream> // For standard input/output
 #include <stdexcept> // For exception handling
-#include <string>
-#include <vector>
+#include <string> // For string operations
+#include <vector> // For vector operations
 #include <functional> // For std::function in advanced examples
 
 using namespace std;
@@ -52,10 +52,10 @@ string max(const string& a, const string& b); // Returns the lexicographically l
 // ====================
 
 // Function Prototype (Declaration) - Template Function
-template <typename T>
+template <typename T> // Template Function for factorial
 T factorial(T n); // Calculates the factorial of a number using recursion.
 
-// Function Prototype (Declaration) - Function Pointer and Lambda
+// Function Prototype (Declaration) - Function Pointer and Lambda Function
 void applyFunction(const vector<int>& data, function<int(int)> func); // Applies a function to each element in a vector.
 
 // Main Function
