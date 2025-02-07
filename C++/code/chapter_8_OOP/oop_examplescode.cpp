@@ -8,9 +8,9 @@
  *   Emojis are used to make the code engaging and flowcharts are included in comments where appropriate.
  ******************************************************************************************/
 
-#include <iostream>
-#include <string>
-#include <vector>
+#include <iostream> // For input/output operations
+#include <string>  // For string class
+#include <vector>  // For vector class
 
 using namespace std;
 

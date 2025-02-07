@@ -329,7 +329,7 @@ void example6() {
  * - Understanding how templates enable code reusability.
  */
 
-template <typename T>
+template <typename T> 
 class Calculator {
 public:
     T add(T a, T b) { return a + b; }
@@ -348,8 +348,8 @@ public:
 };
 
 void example7() {
-    Calculator<int> intCalc;
-    Calculator<double> doubleCalc;
+    Calculator<int> intCalc; 
+    Calculator<double> doubleCalc; 
 
     cout << "Int addition: " << intCalc.add(2, 3) << endl;
     cout << "Double multiplication: " << doubleCalc.multiply(2.5, 4.0) << endl;
