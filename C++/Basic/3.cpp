@@ -1,6 +1,6 @@
 #include <iostream>
-#include <iomanip>
-#include <cmath>
+#include <iomanip> // For advanced formatting
+#include <cmath> // For mathematical functions
 
 class Calculator {
 public:

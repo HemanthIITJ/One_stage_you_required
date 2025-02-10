@@ -26,7 +26,7 @@ public:
 int main() {
     int a = 10, b = 5;
 
-    std::cout << "Addition:Hemanth " << Calculator::add(a, b) << std::endl;
+    std::cout << "Addition:" << Calculator::add(a, b) << std::endl;
     std::cout << "Subtraction: " << Calculator::sub(a, b) << std::endl;
     std::cout << "Multiplication: " << Calculator::mul(a, b) << std::endl;
     std::cout << "Division: " << Calculator::div(a, b) << std::endl;

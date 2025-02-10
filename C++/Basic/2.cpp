@@ -7,9 +7,10 @@ using namespace std;
 
 int main() {
     // Variables
-    int age = 25;
-    double height = 1.75;
-    string name = "John Doe";
+    int age = 25; //    int age = 25; // integer general 4 bytes
+    double height = 1.75; // double height = 1.75; // double general 8 bytes
+    string name = "John Doe"; // string name = "John Doe"; 
+    
 
     // List (Vector)
     vector<int> numbers = {1, 2, 3, 4, 5};
