@@ -34,6 +34,7 @@ class Array(Generic[T]):
         self._capacity: int = capacity
         self._size: int = 0
         self._data: List[Optional[T]] = [None] * self._capacity
+        
 
     def __len__(self) -> int:
         """Returns the number of elements in the array."""
