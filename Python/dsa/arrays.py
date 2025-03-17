@@ -271,7 +271,7 @@ class ArrayAlgorithms:
         Args:
             arr (Array[T]): The array to sort.
         """
-        n = len(arr)
+        n = len(arr) # type: ignore
         for i in range(n):
             min_idx = i
             for j in range(i + 1, n):
