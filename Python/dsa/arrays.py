@@ -39,6 +39,10 @@ class Array(Generic[T]):
     def __len__(self) -> int:
         """Returns the number of elements in the array."""
         return self._size
+    
+    def __data__(self)->list[Optional[T]]:
+        return self._data
+
 
     def __getitem__(self, index: int) -> T:
         """
@@ -271,7 +275,7 @@ class ArrayAlgorithms:
         Args:
             arr (Array[T]): The array to sort.
         """
-        n = len(arr) # type: ignore
+        n = len(arr) # type: ignore 
         for i in range(n):
             min_idx = i
             for j in range(i + 1, n):
@@ -306,20 +310,23 @@ class ArrayAlgorithms:
         """
 
         def _quick_sort(low: int, high: int) -> None:
-            if low < high:
-                pi = partition(low, high)
-                _quick_sort(low, pi - 1)
-                _quick_sort(pi + 1, high)
+            if low < high: # if the subarray has more than one element
+                pi = partition(low, high) # partition the subarray and get the pivot index
+                _quick_sort(low, pi - 1) # sort the left subarray recursively
+                _quick_sort(pi + 1, high) # sort the right subarray recursively
+
 
         def partition(low: int, high: int) -> int:
-            pivot = arr[high]
-            i = low - 1
-            for j in range(low, high):
-                if arr[j] <= pivot:
-                    i += 1
-                    arr[i], arr[j] = arr[j], arr[i]
-            arr[i + 1], arr[high] = arr[high], arr[i + 1]
-            return i + 1
+            pivot = arr[high] # select the last element as the pivot
+            i = low - 1 # index of the smaller element
+            for j in range(low, high): # traverse the array from left to right
+                if arr[j] <= pivot: # if the current element is less than or equal to the pivot
+                    i += 1 # increment the index of the smaller element
+                    arr[i], arr[j] = arr[j], arr[i] # swap the current element with the element at the index of the smaller element
+
+            arr[i + 1], arr[high] = arr[high], arr[i + 1] # swap the pivot with the element at the index of the smaller element
+
+            return i + 1 # return the index of the pivot
 
         _quick_sort(0, len(arr) - 1)
 
