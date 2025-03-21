@@ -585,7 +585,7 @@ def remove_duplicates(items):
 
 numbers_with_duplicates = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]
 unique_ordered = remove_duplicates(numbers_with_duplicates)
-print(f"\nOriginal list: {numbers_with_duplicates}")
+print(f"\nOriginal list: {numbers_with_duplicates}") 
 print(f"After removing duplicates (preserving order): {unique_ordered}")
 
 # Example 3: Set operations for data analysis

@@ -98,7 +98,7 @@ def compute_lps_array(pattern: str) -> List[int]:
     Returns:
         List[int]: The LPS array.
     """
-    lps = [0] * len(pattern)
+    lps = [0] * len(pattern) # same length zero creating
     length = 0  # length of the previous longest prefix suffix
 
     # The loop calculates lps[i] for i from 1 to len(pattern)-1

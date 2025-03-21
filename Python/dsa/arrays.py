@@ -1,17 +1,3 @@
-"""
-arrays.py
-
-A comprehensive implementation of array data structures and algorithms in Python,
-adhering to PEP-8 standards. This module covers basic to advanced array operations,
-including searching, sorting, dynamic resizing, and multi-dimensional arrays.
-
-Dependencies:
-    - torch (only if tensor operations are required)
-
-Author: Generalmodelai-agent
-Date: 2024-10-15
-"""
-
 from typing import TypeVar, Generic, Optional, List, Any
 
 T = TypeVar('T')
@@ -258,7 +244,7 @@ class ArrayAlgorithms:
             arr (Array[T]): The array to sort.
         """
         n = len(arr)
-        for i in range(n):
+        for i in range(n): 
             swapped = False
             for j in range(0, n - i - 1):
                 if arr[j] > arr[j + 1]:
@@ -275,7 +261,7 @@ class ArrayAlgorithms:
         Args:
             arr (Array[T]): The array to sort.
         """
-        n = len(arr) # type: ignore 
+        n = len(arr) 
         for i in range(n):
             min_idx = i
             for j in range(i + 1, n):
@@ -328,7 +314,7 @@ class ArrayAlgorithms:
 
             return i + 1 # return the index of the pivot
 
-        _quick_sort(0, len(arr) - 1)
+        _quick_sort(0, len(arr) - 1) # call the recursive function with the initial indices
 
     @staticmethod
     def merge_sort(arr: Array[T]) -> None:
@@ -340,38 +326,40 @@ class ArrayAlgorithms:
         """
 
         def _merge_sort(left: int, right: int) -> None:
-            if left < right:
-                mid = (left + right) // 2
-                _merge_sort(left, mid)
-                _merge_sort(mid + 1, right)
-                merge(left, mid, right)
+            if left < right: # if the subarray has more than one element
+                mid = (left + right) // 2 # find the middle index
+                _merge_sort(left, mid) # sort the left subarray recursively
+                _merge_sort(mid + 1, right) # sort the right subarray recursively
+                merge(left, mid, right) # merge the two sorted subarrays
+
+
 
         def merge(left: int, mid: int, right: int) -> None:
-            n1 = mid - left + 1
-            n2 = right - mid
-            L: List[Optional[T]] = [arr[left + i] for i in range(n1)]  # type: ignore
-            R: List[Optional[T]] = [arr[mid + 1 + j] for j in range(n2)]  # type: ignore
-            i = j = 0
-            k = left
-            while i < n1 and j < n2:
-                if L[i] is not None and R[j] is not None:
-                    if L[i] <= R[j]:
-                        arr[k] = L[i]  # type: ignore
-                        i += 1
+            n1 = mid - left + 1 # size of the left subarray
+            n2 = right - mid # size of the right subarray
+            L: List[Optional[T]] = [arr[left + i] for i in range(n1)] # create a temporary array for the left subarray
+            R: List[Optional[T]] = [arr[mid + 1 + j] for j in range(n2)]  # create a temporary array for the right subarray
+            i = j = 0 # initialize the indices of the left and right subarrays
+            k = left # initialize the index of the merged subarray
+            while i < n1 and j < n2: # while there are elements in both subarrays
+                if L[i] is not None and R[j] is not None: # if both elements are not None
+                    if L[i] <= R[j]: # if the element in the left subarray is less than or equal to the element in the right subarray
+                        arr[k] = L[i] # copy the element from the left subarray to the merged subarray
+                        i += 1 # increment the index of the left subarray
                     else:
-                        arr[k] = R[j]  # type: ignore
-                        j += 1
-                k += 1
-            while i < n1:
-                arr[k] = L[i]  # type: ignore
-                i += 1
-                k += 1
-            while j < n2:
-                arr[k] = R[j]  # type: ignore
-                j += 1
-                k += 1
+                        arr[k] = R[j]  # copy the element from the right subarray to the merged subarray
+                        j += 1 # increment the index of the right subarray
+                k += 1 # increment the index of the merged subarray
+            while i < n1: # if there are remaining elements in the left subarray
+                arr[k] = L[i]  # copy the element from the left subarray to the merged subarray
+                i += 1 # increment the index of the left subarray
+                k += 1 # increment the index of the merged subarray
+            while j < n2: # if there are remaining elements in the right subarray
+                arr[k] = R[j]   # copy the element from the right subarray to the merged subarray
+                j += 1 # increment the index of the right subarray
+                k += 1 # increment the index of the merged subarray
 
-        _merge_sort(0, len(arr) - 1)
+        _merge_sort(0, len(arr) - 1) # call the merge sort function
 
 
 class MultiDimensionalArray:

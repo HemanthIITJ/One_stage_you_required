@@ -299,7 +299,7 @@ print(f"Expanded (4): '{text.expandtabs(4)}'")
 # If tabsize is negative, it's treated as 0
 print(f"With negative tabsize: '{text.expandtabs(-4)}'")
 
-
+str.split()
 #=============================================================================
 # str.find()
 #=============================================================================
