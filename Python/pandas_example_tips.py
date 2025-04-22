@@ -55,10 +55,10 @@ s4 = pd.Series(5, index=['a', 'b', 'c'])
 # s1.head(n) - First n elements (default 5)
 # s1.tail(n) - Last n elements (default 5)
 # s1.sample(n) - Random sample of n elements
-# s1.describe() - Summary statistics
+# s1.describe() - Summary statistics describe()
 # s1.count() - Count non-NA/null values
 # s1.unique() - Unique values in Series
-# s1.value_counts() - Count occurrence of each value
+# s1.value_counts() - Count occurrence of each value Value_counts
 # s1.sort_values() - Sort by values
 # s1.sort_index() - Sort by index
 # s1.reset_index() - Reset index, moving it to columns
@@ -160,36 +160,36 @@ df_multi = pd.DataFrame(
 #   2  0.789012  0.890123
 
 # DataFrame Attributes
-# df1.values - Returns 2D array of values
-# df1.columns - Returns Index object for columns
-# df1.index - Returns Index object for rows
-# df1.dtypes - Returns Series with dtypes of each column
-# df1.shape - Returns tuple of (rows, columns)
-# df1.size - Returns number of elements
-# df1.T - Transpose of DataFrame
+# df1.values - Returns 2D array of values Values
+# df1.columns - Returns Index object for columns columns
+# df1.index - Returns Index object for rows Index
+# df1.dtypes - Returns Series with dtypes of each column dtypes
+# df1.shape - Returns tuple of (rows, columns) shape
+# df1.size - Returns number of elements Size
+# df1.T - Transpose of DataFrame Transponse
 
 # DataFrame Methods
 # df1.head(n) - First n rows (default 5)
 # df1.tail(n) - Last n rows (default 5)
 # df1.sample(n) - Random sample of n rows
-# df1.describe() - Summary statistics for numeric columns
-# df1.info() - Concise summary of DataFrame
-# df1.count() - Count non-NA cells for each column
-# df1.sort_values(by) - Sort by values in specified column(s)
-# df1.sort_index() - Sort by index
-# df1.reset_index() - Reset index, moving it to columns
-# df1.drop(labels) - Drop specified labels (rows or columns)
+# df1.describe() - Summary statistics for numeric columns describe()
+# df1.info() - Concise summary of DataFrame info 
+# df1.count() - Count non-NA cells for each column count
+# df1.sort_values(by) - Sort by values in specified column(s) Sort_values()
+# df1.sort_index() - Sort by index sort_index()
+# df1.reset_index() - Reset index, moving it to columns reset_index()
+# df1.drop(labels) - Drop specified labels (rows or columns) drop
 
 # Accessing columns
 col_a = df1['A']  # Returns Series with column A
 col_a_b = df1[['A', 'B']]  # Returns DataFrame with columns A and B
 
 # Setting new column
-df1['D'] = [7, 8, 9]
+df1['D'] = [7, 8, 9] # we add New column D and corresponding Values
 df1['E'] = df1['A'] + df1['C']
 
 # Accessing rows by position
-row0 = df1.iloc[0]  # First row as Series
+row0 = df1.iloc[0]  # First row as Series iloc[start:stop:step], iloc[row_idex],
 rows01 = df1.iloc[0:2]  # First two rows as DataFrame
 
 # Accessing rows by label
@@ -220,17 +220,17 @@ except KeyError:
 # ====================
 
 # Basic info
-# df1.dtypes - Data types of each column
-# df1.info() - Summary including dtypes and non-null values
-# df1.describe() - Statistical summary of numeric columns
-# df1.shape - Dimensions (rows, columns)
-# df1.columns - Column labels
-# df1.index - Row labels
+# df1.dtypes - Data types of each column dtypes
+# df1.info() - Summary including dtypes and non-null values info()
+# df1.describe() - Statistical summary of numeric columns describe()
+# df1.shape - Dimensions (rows, columns) shape
+# df1.columns - Column labels columns
+# df1.index - Row labels index
 
 # Additional inspection methods
-# df1.count() - Non-NA count for each column
-# df1.nunique() - Number of unique values in each column
-# df1.value_counts() - Counts of unique values (for Series)
+# df1.count() - Non-NA count for each column count()
+# df1.nunique() - Number of unique values in each column nunique()
+# df1.value_counts() - Counts of unique values (for Series) value_count()
 # df1.isnull().sum() - Count of missing values per column
 # df1.memory_usage() - Memory usage of each column
 
@@ -242,9 +242,9 @@ df_missing = pd.DataFrame({
 })
 
 # Checking for missing values
-missing_mask = df_missing.isnull() # Bool mask of missing values
-missing_counts = df_missing.isnull().sum() # Count of missing values per column
-total_missing = df_missing.isnull().sum().sum() # Total count of missing values
+missing_mask = df_missing.isnull() # Bool mask of missing values isnull()
+missing_counts = df_missing.isnull().sum() # Count of missing values per column isnull.sum()
+total_missing = df_missing.isnull().sum().sum() # Total count of missing values  isnull.sum().sum()
 
 # 
 
@@ -252,11 +252,11 @@ total_missing = df_missing.isnull().sum().sum() # Total count of missing values
 # ==================
 
 # Handling missing data
-df_dropped_rows = df_missing.dropna()  # Drop rows with any missing values
-df_dropped_rows = df_missing.dropna(how='all')  # Drop rows with all missing values
-df_dropped_cols = df_missing.dropna(axis=1)  # Drop columns with any missing values
-df_cleaned = df_missing.fillna(0)  # Fill missing values with 0
-df_cleaned = df_missing.fillna({'A': 0, 'B': 5, 'C': 'unknown'})  # Fill by column
+df_dropped_rows = df_missing.dropna()  # Drop rows with any missing values dropna()
+df_dropped_rows = df_missing.dropna(how='all')  # Drop rows with all missing values 
+df_dropped_cols = df_missing.dropna(axis=1)  # Drop columns with any missing values drop(axis=1)
+df_cleaned = df_missing.fillna(0)  # Fill missing values with 0 fillna(0)
+df_cleaned = df_missing.fillna({'A': 0, 'B': 5, 'C': 'unknown'})  # Fill by column 
 
 # Forward fill (propagate last valid observation forward)
 df_ffilled = df_missing.fillna(method='ffill')
@@ -294,9 +294,9 @@ if 'B' in df1.columns:
 # ========================
 
 # Applying functions
-doubled = df1['A'].apply(lambda x: x * 2)
+doubled = df1['A'].apply(lambda x: x * 2) # apply to single column
 df_transformed = df1.apply(lambda x: x * 2)  # Apply to each column
-df_transformed = df1.applymap(lambda x: str(x).upper())  # Apply to each element
+df_transformed = df1['A'].applymap(lambda x: str(x).upper())  # Apply to each element
 
 # Mapping values
 mapping = {1: 'One', 2: 'Two', 3: 'Three'}

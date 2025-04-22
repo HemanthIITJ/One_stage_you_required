@@ -189,8 +189,8 @@ def map_with_none():
     # Using None as function just returns the elements unchanged
     # Useful for converting an iterable to a list/tuple efficiently
     data = range(5)  # Range object
-    data_list = list(map(None, data))  # Convert to list
-    print(f"Map with None: {data_list}")
+    # data_list = list(map(None, data))  # Convert to list
+    # print(f"Map with None: {data_list}") -> TypeError: 'NoneType' object is not callable
     
     # EXCEPTION CASE: This only works in Python 2, in Python 3 it raises a TypeError
     try:

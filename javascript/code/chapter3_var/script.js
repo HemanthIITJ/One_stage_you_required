@@ -26,7 +26,7 @@ if (age >= 18) { // ✅ Check if age is 18 or older
 // Example 3: if condition with logical operator
 let has_Ticket = true; // 🎟️ Imagine you have a ticket for an event
 let hasPass = true; // 🎫 Imagine you have a pass for the even
-if (hasTicket && hasPass) { // ✅ Check if both conditions are true
+if (has_Ticket && hasPass) { // ✅ Check if both conditions are true
     console.log("You can enter the event! 🎉"); // Output if both are true
 }
 

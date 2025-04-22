@@ -204,7 +204,7 @@ calc_expressions = [
 print("\nCalculator results:")
 for expr in calc_expressions:
     result = safe_eval_calculator(expr)
-    print(f"  {expr} = {result}")
+    print(f" {expr} = {result}")
 
 # EXCEPTION CASE: Code injection vulnerability with unrestricted eval
 dangerous_input = "str(__import__('os').system('echo Potential code injection'))"
@@ -280,17 +280,17 @@ Key characteristics:
 
 # Basic compilation and execution
 simple_code = "result = 5 * 5"
-compiled_code = compile(simple_code, "<string>", "exec")
+compiled_code = compile(simple_code, "<string>", "exec") # compile(source, filename, mode, flags=0, dont_inherit=False, optimize=-1)
 print(f"Compiled code object: {compiled_code}")
 
 # Execute the compiled code in the current namespace
-exec(compiled_code)
+exec(compiled_code) #exec
 print(f"After execution, result = {result}")
 
 # Compile mode 'eval' - for expressions that return a value
 expression = "2 ** 10"
 compiled_expr = compile(expression, "<string>", "eval")
-result = eval(compiled_expr)
+result = eval(compiled_expr) #eval
 print(f"Compiled and evaluated expression '{expression}': {result}")
 
 # Compile mode 'single' - for single interactive statement
@@ -309,7 +309,7 @@ exec(compiled_function, namespace)  # Execute in a separate namespace
 
 # Now use the function from the namespace
 greeting = namespace["greet"]("Python User")
-print(f"Using compiled function: {greeting}")
+print(f"Using compiled function: {greeting}") #compile  and execute
 
 # Compiling a class definition
 class_def = """
@@ -324,7 +324,7 @@ class Rectangle:
     def __str__(self):
         return f"Rectangle({self.width}×{self.height})"
 """
-compiled_class = compile(class_def, "<string>", "exec")
+compiled_class = compile(class_def, "<string>", "exec") # "<string>", exec, compile, namespace={}
 namespace = {}
 exec(compiled_class, namespace)
 
@@ -435,7 +435,7 @@ z = x + y
 print(f"Inside exec: z = {z}")
 """
 exec(code_block)
-print(f"After exec, y = {y}, z = {z}")
+# print(f"After exec, y = {y}, z = {z}")
 
 # Using custom namespace with exec
 namespace = {"a": 10, "b": 20}
@@ -454,7 +454,7 @@ def multiply(a, b):
     return a * b
 """
 exec(function_code)
-print(f"Using dynamically created function: {multiply(6, 7)}")
+# print(f"Using dynamically created function: {multiply(6, 7)}")
 
 # Creating a class dynamically
 class_code = """
@@ -467,8 +467,8 @@ class Circle:
         return math.pi * self.radius ** 2
 """
 exec(class_code)
-circle = Circle(5)
-print(f"Area of circle with radius 5: {circle.area():.2f}")
+# circle = Circle(5)
+# print(f"Area of circle with radius 5: {circle.area():.2f}")
 
 # Executing code with pre-compiled code object (more efficient)
 compiled_code = compile("for i in range(5): print(f'Iteration {i}')", "<string>", "exec")

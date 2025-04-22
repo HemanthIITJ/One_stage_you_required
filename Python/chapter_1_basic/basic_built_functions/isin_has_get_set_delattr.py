@@ -33,11 +33,11 @@ def isinstance_examples():
     decimal = 3.14
     
     print(f"num is int: {isinstance(num, int)}")                  # True
-    print(f"text is str: {isinstance(text, str)}")                # True
+    print(f"text is str: {isinstance(text, str)}")                # True #isinstance isinstance
     print(f"decimal is float: {isinstance(decimal, float)}")      # True
     
     # Checking against multiple types (using a tuple)
-    print(f"num is int or float: {isinstance(num, (int, float))}")  # True
+    print(f"num is int or float: {isinstance(num, (int, float))}")  # True isinstance
     print(f"text is int or float: {isinstance(text, (int, float))}") # False
     
     # isinstance works with inheritance
@@ -112,7 +112,7 @@ def hasattr_examples():
     person = Person()
     
     # Basic attribute checking
-    print(f"person has 'name': {hasattr(person, 'name')}")         # True
+    print(f"person has 'name': {hasattr(person, 'name')}")         # True #hasattr
     print(f"person has 'age': {hasattr(person, 'age')}")           # True
     print(f"person has 'address': {hasattr(person, 'address')}")   # False
     
