@@ -8,6 +8,7 @@
 function varExample() {
     console.log(a); // undefined (hoisted)
     var a = 10;
+    console.log(a) // 10
     if (true) {
         var a = 20; // same variable!
         console.log(a); // 20
