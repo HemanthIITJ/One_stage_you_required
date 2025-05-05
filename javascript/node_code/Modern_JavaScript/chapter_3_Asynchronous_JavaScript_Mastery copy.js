@@ -197,7 +197,7 @@ function asyncOperationWithPromise(data, delay) {
 }
 
 // Example of using the Promise-based function
-/*
+
 asyncOperationWithPromise("Data P1", 80)
     .then(result => {
         console.log("Promise Usage: Result P1:", result);
@@ -219,7 +219,7 @@ asyncOperationWithPromise("Data P1", 80)
         // Executes regardless of whether the promise was fulfilled or rejected
         console.log("Promise Usage: Chain finished (finally).");
     });
-*/
+
 // Note: The above promise example is commented out to avoid excessive async logs.
 
 
@@ -270,7 +270,7 @@ function step(num, delay, shouldFail = false) {
     });
 }
 
-/*
+
 step(1, 50)
     .then(result1 => {
         console.log("Chain:", result1); // Result from Step 1
@@ -303,7 +303,7 @@ step(1, 50)
     .finally(() => {
         console.log("Chain: Finally block executed.");
     });
-*/
+
 // Note: The above promise chaining example is commented out.
 
 /**
@@ -361,7 +361,7 @@ const p4 = Promise.reject("P4 Rejected Immediately");
 const p5 = new Promise(resolve => setTimeout(() => resolve("P5 Resolved after 150ms"), 150));
 
 // Promise.all example (will reject because p3 rejects first)
-/*
+
 Promise.all([p1, p2, p5])
     .then(results => console.log("Promise.all (success):", results)) // [ 'P1 Resolved', 'P2 Resolved after 100ms', 'P5 Resolved after 150ms' ]
     .catch(err => console.error("Promise.all (rejected):", err.message)); // Not hit in this case
@@ -369,10 +369,10 @@ Promise.all([p1, p2, p5])
 Promise.all([p1, p2, p3, p5]) // Add p3 which rejects
     .then(results => console.log("Promise.all (success with reject):", results)) // Not hit
     .catch(err => console.error("Promise.all (rejected with reject):", err.message)); // P3 Rejected after 50ms
-*/
+
 
 // Promise.race example (will reject because p3 rejects fastest)
-/*
+
 Promise.race([p2, p3, p5])
     .then(result => console.log("Promise.race (fulfilled):", result)) // Not hit
     .catch(err => console.error("Promise.race (rejected):", err.message)); // P3 Rejected after 50ms
@@ -380,10 +380,10 @@ Promise.race([p2, p3, p5])
 Promise.race([p1, p2, p5]) // p1 resolves immediately
     .then(result => console.log("Promise.race (fulfilled first):", result)) // P1 Resolved
     .catch(err => console.error("Promise.race (rejected first):", err.message)); // Not hit
-*/
+
 
 // Promise.allSettled example (always fulfills with status objects)
-/*
+
 Promise.allSettled([p1, p2, p3, p5])
     .then(results => {
         console.log("Promise.allSettled results:");
@@ -401,10 +401,9 @@ Promise.allSettled([p1, p2, p3, p5])
     //   - Rejected: P3 Rejected after 50ms
     //   - Fulfilled: P2 Resolved after 100ms
     //   - Fulfilled: P5 Resolved after 150ms
-*/
 
 // Promise.any example (fulfills with the first fulfilled promise)
-/*
+
 Promise.any([p3, p4, p2, p5]) // p2 fulfills first among successful ones
     .then(result => console.log("Promise.any (fulfilled):", result)) // P2 Resolved after 100ms
     .catch(err => console.error("Promise.any (rejected):", err)); // Not hit
@@ -415,7 +414,7 @@ Promise.any([p3, p4]) // All reject
         console.error("Promise.any (all reject - rejected):", err instanceof AggregateError, err.errors.map(e => e?.message || e));
         // Output: Promise.any (all reject - rejected): true [ 'P3 Rejected after 50ms', 'P4 Rejected Immediately' ]
     });
-*/
+
 // Note: Static method examples are commented out.
 
 // -----------------------------------------------------------------------------
@@ -478,13 +477,13 @@ async function processDataAsync() {
         console.log("Async/Await: Result 2:", result2);
 
         // Simulating a failing operation
-        // const result3 = await asyncOperationWithPromise("Async Data 3 (Fail)", 50); // This would throw
-        // console.log("Async/Await: Result 3:", result3); // This line wouldn't execute if above fails
+        const result3 = await asyncOperationWithPromise("Async Data 3 (Fail)", 50); // This would throw
+        console.log("Async/Await: Result 3:", result3); // This line wouldn't execute if above fails
 
         // Simulating synchronous error
-        // if (Math.random() > 0.5) {
-        //     throw new Error("Async/Await: Simulated synchronous error!");
-        // }
+        if (Math.random() > 0.5) {
+            throw new Error("Async/Await: Simulated synchronous error!");
+        }
 
         console.log("Async/Await: All operations successful.");
         return "Process Completed Successfully"; // This becomes the fulfillment value of the promise returned by processDataAsync
@@ -499,7 +498,7 @@ async function processDataAsync() {
 }
 
 // Calling the async function and handling its returned Promise
-/*
+
 processDataAsync()
     .then(finalResult => {
         console.log("Async/Await Caller: Success -", finalResult);
@@ -507,17 +506,17 @@ processDataAsync()
     .catch(error => {
         console.error("Async/Await Caller: Failure -", error.message);
     });
-*/
+
 // Note: The above async/await example is commented out.
 
 // Top-level await (supported in ES Modules and some environments like modern Node.js)
-// try {
-//     console.log("Top-Level Await: Starting...");
-//     const result = await asyncOperationWithPromise("Top-Level Data", 40);
-//     console.log("Top-Level Await: Result:", result);
-// } catch (error) {
-//     console.error("Top-Level Await: Error:", error.message);
-// }
+try {
+    console.log("Top-Level Await: Starting...");
+    const result = await asyncOperationWithPromise("Top-Level Data", 40);
+    console.log("Top-Level Await: Result:", result);
+} catch (error) {
+    console.error("Top-Level Await: Error:", error.message);
+}
 
 
 // -----------------------------------------------------------------------------
@@ -674,7 +673,6 @@ function* asyncTaskGenerator() {
 }
 
 // Execute the generator using the co-routine runner
-/*
 runCoroutine(asyncTaskGenerator)
     .then(finalResult => {
         console.log("Co-routine Runner: Success -", finalResult);
@@ -682,7 +680,7 @@ runCoroutine(asyncTaskGenerator)
     .catch(error => {
         console.error("Co-routine Runner: Failure -", error.message);
     });
-*/
+
 // Note: The above co-routine example is commented out.
 
 
